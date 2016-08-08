@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> DiscoBall</title>
+        <meta charset="utf-8">
+    </head>
+    <style>
+    body {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        overflow: hidden;
+        
+    }
+        .circle {
+            width: 50px;
+            height: 50px;
+            border: 10px solid red;
+            border-radius: 50%;
+            /*text-shadow: 1px 1px 2px #fff;*/
+            /*background-color: orange;*/
+            color: white; 
+            font-size: 2em;
+            position: absolute;
+            /*margin: 50px;*/
+            /*box-shadow: 0px 2px 37px 11px rgb(255,255,255 );*/
+            /*"0px 2px 37px 11px rgb(" + r + ", " + g +", " + b + ")"*/
+        }
+        .text {
+            color: white;
+        }
+    </style>
+    <body>
+    
+        
+        <div class="circle"></div>
+        
+        <div class="text">
+            
+        </div>
+    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="jquery.easing.1.3.js"></script>
+      
+      <script>
+          
+          setInterval(function() {
+              var wi = $(window).width() - 100  ;
+            //   var w = document.documentElement.clientWidth ;
+            //   var h = document.documentElement.clientHeight;
+              var hi = $(window).height() - 100;
+              
+            var w= Math.round(Math.random()*wi);
+            var h = Math.round(Math.random()*hi);
+            $('.circle').animate({left: w + "px" },1000 , 'easeInOutBack');
+            $('.circle').animate({top: h + "px"},1000 , 'easeOutCirc');
+            
+            $('.text').html( h + "px" + "   "+ w + "px");
+            
+            
+          }, 6000);
+          
+            setInterval(function() {
+                    var r = Math.round(Math.random()*255);
+                    var g = Math.round(Math.random()*255);
+                    var b = Math.round(Math.random()*255);
+                    $(".circle").css("background", "rgb(" + r + ", " + g +", " + b + ")");
+                    $(".circle").css( "boxShadow" , "0px 2px 37px 11px rgb(" + r + ", " + g +", " + b + ")"); 
+            }, 700);
+            
+            setInterval(function() {        
+                    var bor1 = Math.round(Math.random()*255);
+                    var bor2 = Math.round(Math.random()*255);
+                    var bor3 = Math.round(Math.random()*255);
+                    $(".circle").css("borderColor", "rgb(" + bor1 + ", " + bor2 +", " + bor3 + ")");
+            }, 50);
+    
+    
+    
+      </script>
+    </body>
+</html>
